@@ -61,17 +61,15 @@ a {
 
 .brand-logo {
   display: block;
-  width: 116px;
-  height: 48px;
-  border-radius: 8px;
+  width: 144px;
+  height: auto;
   object-fit: contain;
   object-position: center;
-  background: #000;
 }
 
 .site-footer .brand-logo {
-  width: 150px;
-  height: 84px;
+  width: 180px;
+  height: auto;
 }
 
 .brand-mark {
