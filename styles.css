@@ -50,6 +50,12 @@ a {
   backdrop-filter: blur(18px);
 }
 
+.site-header .brand {
+  height: 100%;
+  min-width: 148px;
+  overflow: hidden;
+}
+
 .brand,
 .site-footer .brand {
   display: inline-flex;
@@ -61,8 +67,8 @@ a {
 
 .brand-logo {
   display: block;
-  width: 144px;
-  height: auto;
+  width: 132px;
+  max-height: 44px;
   object-fit: contain;
   object-position: center;
 }
