@@ -59,6 +59,20 @@ a {
   letter-spacing: 0;
 }
 
+.brand-logo {
+  display: block;
+  width: 172px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.site-footer .brand-logo {
+  width: 190px;
+  height: 46px;
+}
+
 .brand-mark {
   display: grid;
   width: 32px;
