@@ -1,16 +1,32 @@
 const menuButton = document.querySelector(".menu-button");
 const mobileNav = document.querySelector(".mobile-nav");
 
+function closeMobileNav() {
+  mobileNav?.classList.remove("is-open");
+  menuButton?.setAttribute("aria-expanded", "false");
+}
+
 menuButton?.addEventListener("click", () => {
   const isOpen = mobileNav.classList.toggle("is-open");
   menuButton.setAttribute("aria-expanded", String(isOpen));
 });
 
 mobileNav?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileNav.classList.remove("is-open");
-    menuButton?.setAttribute("aria-expanded", "false");
-  });
+  link.addEventListener("click", closeMobileNav);
+});
+
+document.addEventListener("click", (event) => {
+  if (!mobileNav?.classList.contains("is-open")) return;
+  if (mobileNav.contains(event.target) || menuButton?.contains(event.target)) return;
+  closeMobileNav();
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMobileNav();
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 880) closeMobileNav();
 });
 
 const canvas = document.getElementById("signalCanvas");

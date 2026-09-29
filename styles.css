@@ -3353,8 +3353,643 @@ body.usecase .asset-strip .button-primary {
     grid-template-columns: 1fr;
   }
 
+body.usecase .case-points strong {
+  width: max-content;
+  max-width: 100%;
+}
+}
+
+/* Final responsive hardening */
+img,
+video {
+  max-width: 100%;
+}
+
+main,
+section,
+article,
+div,
+nav {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+strong,
+span {
+  overflow-wrap: break-word;
+}
+
+.hero,
+.page-hero,
+.usecase-hero,
+.intro-band,
+.split-section,
+.future-section,
+.faq-section,
+.case-feature,
+.privacy-band,
+.accordion-section,
+.press-list,
+.asset-strip,
+.case-detail-section {
+  max-width: 100%;
+}
+
+@media (max-width: 1180px) and (min-width: 881px) {
+  .site-header {
+    width: min(1040px, calc(100% - 28px));
+    gap: 14px;
+  }
+
+  .desktop-nav {
+    gap: 16px;
+  }
+
+  .product-grid-wide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-grid-wide .grid-placeholder:last-child {
+    display: none;
+  }
+
+  .case-grid,
+  .detail-grid,
+  .press-list article {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .usecase-hero {
+    grid-template-columns: minmax(300px, 0.9fr) minmax(340px, 1.1fr);
+  }
+
+  body.usecase .usecase-hero {
+    grid-template-columns: minmax(300px, 0.9fr) minmax(340px, 1.1fr);
+  }
+
+  .usecase-hero h1,
+  body.usecase .usecase-hero h1 {
+    font-size: clamp(3.2rem, 5.2vw, 5rem);
+  }
+}
+
+@media (max-width: 880px) {
+  .site-header {
+    top: 12px;
+    width: calc(100% - 24px);
+    height: 58px;
+    grid-template-columns: auto 1fr auto;
+    padding: 0 8px 0 12px;
+  }
+
+  .site-header .brand {
+    min-width: 44px;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-nav {
+    top: 78px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .hero,
+  .page-hero {
+    min-height: 720px;
+    padding: 112px 20px 48px;
+  }
+
+  .hero-content,
+  .page-hero h1,
+  .page-hero p:not(.eyebrow) {
+    max-width: 100%;
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    font-size: clamp(3.4rem, 14vw, 5.8rem);
+    line-height: 0.96;
+  }
+
+  .hero p:not(.eyebrow),
+  .page-hero p:not(.eyebrow) {
+    font-size: clamp(1.1rem, 4.2vw, 1.45rem);
+    line-height: 1.32;
+  }
+
+  .intro-band,
+  .split-section,
+  .future-section,
+  .faq-section,
+  .case-feature,
+  .privacy-band,
+  .accordion-section,
+  .press-list,
+  .case-detail-section,
+  .asset-strip {
+    padding: 72px 20px;
+  }
+
+  .product-grid,
+  .product-grid-wide,
+  .detail-grid,
+  .case-grid,
+  .usecase-list,
+  .usecase-brief,
+  .metric-board {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid .grid-placeholder,
+  .usecase-placeholder {
+    display: none;
+  }
+
+  .product-grid article,
+  .detail-grid article,
+  .usecase-tile,
+  body.usecase .usecase-brief article {
+    min-height: auto;
+  }
+
+  .usecase-tile {
+    padding: 34px 20px;
+  }
+
+  .usecase-tile h2 {
+    font-size: clamp(2.3rem, 9.5vw, 4rem);
+  }
+
+  body.usecase .usecase-hero,
+  .usecase-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    min-height: auto;
+    padding: 116px 20px 56px;
+  }
+
+  body.usecase .usecase-hero > div,
+  body.usecase .split-video > div,
+  .usecase-hero > div,
+  .split-video > div {
+    order: 1;
+    padding: 0;
+  }
+
+  body.usecase .usecase-hero video,
+  body.usecase .split-video video,
+  .usecase-hero video,
+  .split-video video {
+    order: 2;
+    width: 100%;
+    border-radius: 18px;
+    outline-width: 6px;
+    outline-offset: 0;
+  }
+
+  body.usecase .usecase-hero h1,
+  .usecase-hero h1 {
+    font-size: clamp(3rem, 12vw, 4.75rem);
+    line-height: 1;
+  }
+
+  .case-points article,
+  body.usecase .case-points article {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .asset-strip {
+    display: block;
+  }
+
+  .asset-actions {
+    justify-content: flex-start;
+    margin-top: 28px;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 20px;
+  }
+
+  .site-footer div {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    width: calc(100% - 18px);
+    height: 54px;
+    top: 9px;
+  }
+
+  .menu-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobile-nav {
+    top: 68px;
+    left: 9px;
+    right: 9px;
+  }
+
+  .hero,
+  .page-hero {
+    min-height: 640px;
+    padding: 96px 16px 42px;
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    font-size: clamp(3rem, 15vw, 4.25rem);
+    line-height: 1;
+  }
+
+  h2,
+  .case-detail-section h2,
+  .asset-strip h2 {
+    font-size: clamp(2.15rem, 10vw, 3.1rem);
+    line-height: 1.06;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .button,
+  .nav-cta {
+    min-width: 0;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .intro-band,
+  .split-section,
+  .future-section,
+  .faq-section,
+  .case-feature,
+  .privacy-band,
+  .accordion-section,
+  .press-list,
+  .case-detail-section,
+  .asset-strip {
+    padding: 60px 16px;
+  }
+
+  .product-grid article,
+  .detail-grid article,
+  .usecase-tile,
+  body.usecase .usecase-brief article,
+  body.usecase .case-points article {
+    padding: 26px 18px;
+  }
+
+  .usecase-tile .tile-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .usecase-tile span {
+    margin-bottom: 34px;
+  }
+
+  body.usecase .usecase-hero,
+  .usecase-hero {
+    padding: 96px 16px 48px;
+  }
+
+  body.usecase .usecase-hero h1,
+  .usecase-hero h1 {
+    font-size: clamp(2.65rem, 13.2vw, 3.65rem);
+  }
+
   body.usecase .case-points strong {
     width: max-content;
     max-width: 100%;
+    min-width: 0;
+    padding: 0 14px;
+  }
+
+  .site-footer .brand-logo {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1,
+  .page-hero h1,
+  body.usecase .usecase-hero h1,
+  .usecase-hero h1 {
+    font-size: clamp(2.45rem, 14vw, 3.1rem);
+  }
+
+  .signal-row strong,
+  .case-points strong,
+  body.usecase .case-points strong {
+    font-size: clamp(1.65rem, 10vw, 2.35rem);
+  }
+}
+
+/* Responsive completion pass */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+.site-header,
+.mobile-nav,
+.hero-content,
+.section-heading,
+.signal-panel,
+.metric-board,
+.future-visual,
+.case-points,
+.asset-actions,
+.site-footer,
+.site-footer div {
+  min-width: 0;
+}
+
+.mobile-nav {
+  max-height: calc(100svh - 92px);
+  overflow-y: auto;
+}
+
+.button,
+.nav-cta,
+.text-link {
+  text-align: center;
+  white-space: normal;
+}
+
+.site-footer div {
+  flex-wrap: wrap;
+}
+
+.hero-video,
+.usecase-hero video {
+  max-inline-size: 100%;
+}
+
+@media (max-width: 1240px) and (min-width: 881px) {
+  .site-header {
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+  }
+
+  .desktop-nav {
+    min-width: 0;
+    gap: clamp(10px, 1.5vw, 18px);
+    justify-content: center;
+    font-size: clamp(0.875rem, 1.25vw, 1rem);
+  }
+
+  .nav-cta {
+    padding-inline: 16px;
+  }
+
+  .intro-band,
+  .split-section,
+  .future-section,
+  .faq-section,
+  .case-feature,
+  .case-detail-section {
+    gap: clamp(30px, 4vw, 52px);
+  }
+
+  body.usecase .usecase-hero,
+  .usecase-hero {
+    gap: clamp(20px, 3vw, 40px);
+  }
+
+  body.usecase .usecase-hero video,
+  .usecase-hero video {
+    width: 100%;
+  }
+}
+
+@media (max-width: 980px) and (min-width: 881px) {
+  .site-header {
+    width: calc(100% - 20px);
+    padding-inline: 10px;
+  }
+
+  .desktop-nav {
+    gap: 10px;
+  }
+
+  .nav-cta {
+    min-height: 38px;
+    padding-inline: 12px;
+    font-size: 0.9375rem;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 880px) {
+  .mobile-nav a {
+    min-height: 44px;
+  }
+
+  .page-hero {
+    align-content: center;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .future-section {
+    min-height: auto;
+  }
+
+  .future-visual {
+    min-height: clamp(260px, 56vw, 420px);
+  }
+
+  .press-list article {
+    padding: 30px 20px;
+  }
+
+  .site-footer div {
+    gap: 14px 20px;
+  }
+
+  body.usecase .usecase-hero {
+    align-items: start;
+  }
+
+  body.usecase .usecase-hero video,
+  .usecase-hero video {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 58svh;
+    object-fit: contain;
+  }
+
+  body.manufacturing-theme .compact-hero,
+  body.manufacturing-theme .compact-hero > div {
+    min-height: auto;
+  }
+
+  body.healthcare-theme .usecase-hero {
+    color: var(--ink);
+  }
+
+  body.defence-theme .mobile-nav,
+  body.petroleum-theme .mobile-nav {
+    border-color: rgba(249, 249, 248, 0.16);
+    background: rgba(16, 17, 18, 0.92);
+    color: var(--paper);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .page-hero {
+    min-height: min(720px, 100svh);
+  }
+
+  .page-hero {
+    padding-top: 92px;
+  }
+
+  .intro-band,
+  .split-section,
+  .future-section,
+  .faq-section,
+  .case-feature,
+  .privacy-band,
+  .accordion-section,
+  .press-list,
+  .case-detail-section,
+  .asset-strip,
+  .use-cases {
+    padding-inline: 16px;
+  }
+
+  .product-grid article,
+  .detail-grid article,
+  .metric-board div,
+  .press-list article,
+  .usecase-tile,
+  body.usecase .usecase-brief article,
+  body.usecase .case-points article {
+    padding-inline: 18px;
+  }
+
+  .signal-panel {
+    padding: 12px;
+  }
+
+  .metric-board div {
+    min-height: 132px;
+  }
+
+  .case-points strong,
+  body.usecase .case-points strong {
+    justify-self: start;
+    white-space: normal;
+  }
+
+  .asset-strip,
+  body.usecase .asset-strip {
+    display: grid;
+    gap: 26px;
+    align-items: start;
+  }
+
+  .asset-actions {
+    display: grid;
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .asset-actions .button,
+  .asset-strip > .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .site-header {
+    border-radius: 22px;
+  }
+
+  .hero,
+  .page-hero {
+    min-height: 600px;
+    padding-inline: 14px;
+  }
+
+  .hero h1,
+  .page-hero h1,
+  body.usecase .usecase-hero h1,
+  .usecase-hero h1 {
+    font-size: clamp(2.55rem, 13vw, 3.35rem);
+    line-height: 1.04;
+  }
+
+  h2,
+  .detail-grid h2,
+  .press-list h2,
+  .case-detail-section h2,
+  .asset-strip h2,
+  .usecase-tile h2,
+  body.usecase .usecase-brief h2 {
+    font-size: clamp(2rem, 9.6vw, 2.65rem);
+    line-height: 1.08;
+  }
+
+  p,
+  .hero p:not(.eyebrow),
+  .page-hero p:not(.eyebrow),
+  body.usecase .usecase-hero p:not(.eyebrow) {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .hero-actions,
+  .asset-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    min-height: 46px;
+    padding-inline: 16px;
+  }
+
+  .signal-row strong {
+    font-size: clamp(1.35rem, 8vw, 1.9rem);
+  }
+
+  .site-footer div {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
