@@ -24,6 +24,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -52,7 +53,7 @@ a {
 
 .site-header .brand {
   height: 100%;
-  min-width: 148px;
+  min-width: 44px;
   overflow: hidden;
 }
 
@@ -67,15 +68,15 @@ a {
 
 .brand-logo {
   display: block;
-  width: 132px;
-  max-height: 44px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
   object-position: center;
 }
 
 .site-footer .brand-logo {
-  width: 180px;
-  height: auto;
+  width: 58px;
+  height: 58px;
 }
 
 .brand-mark {
@@ -195,8 +196,10 @@ a {
 
 .page-hero {
   min-height: 620px;
+  min-width: 0;
   display: grid;
   align-content: end;
+  overflow: hidden;
   padding: 140px min(5vw, 64px) 72px;
   background:
     radial-gradient(circle at 78% 22%, rgba(124, 216, 223, 0.26), transparent 30%),
@@ -212,12 +215,14 @@ a {
 }
 
 .page-hero h1 {
-  max-width: 980px;
+  max-width: min(980px, 100%);
   margin-bottom: 26px;
+  overflow-wrap: anywhere;
 }
 
 .page-hero p:not(.eyebrow) {
-  max-width: 720px;
+  max-width: min(720px, 100%);
+  min-width: 0;
   color: var(--muted);
   font-size: clamp(20px, 2.2vw, 28px);
   line-height: 1.42;
@@ -451,6 +456,10 @@ h2 {
   background: var(--line);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}
+
+.product-grid-wide {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .product-grid article {
@@ -933,6 +942,10 @@ details p {
     padding: 26px 22px;
   }
 
+  .product-grid .grid-placeholder {
+    display: none;
+  }
+
   .signal-row {
     align-items: flex-start;
     flex-direction: column;
@@ -1129,10 +1142,18 @@ h3 {
   background: var(--line);
 }
 
+.product-grid-wide {
+  background: var(--line);
+}
+
 .product-grid article,
 .detail-grid article {
   min-height: 370px;
   padding: 36px;
+}
+
+.product-grid .grid-placeholder {
+  pointer-events: none;
 }
 
 .icon-circle,
@@ -1348,7 +1369,7 @@ summary,
 strong {
   font-family: "WorldProMVP", "Noto Sans", Helvetica, sans-serif;
   font-weight: 325;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .site-header {
@@ -1387,7 +1408,7 @@ h1,
   max-width: 13em;
   font-size: 4rem;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   font-weight: 325;
 }
 
@@ -1396,7 +1417,7 @@ h2,
 .press-list h2 {
   font-size: 2.75rem;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   font-weight: 325;
 }
 
@@ -1404,7 +1425,7 @@ h3,
 .case-card h3 {
   font-size: 1.875rem;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   font-weight: 325;
 }
 
@@ -1437,7 +1458,7 @@ p,
 .metric-board strong,
 .signal-row strong {
   font-weight: 325;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 @media (min-width: 640px) {
@@ -1592,4 +1613,1729 @@ p,
 
 summary::marker {
   color: var(--blue);
+}
+
+/* Use-case pages */
+.usecase-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.usecase-tile {
+  min-height: clamp(320px, 34vw, 420px);
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: 36px;
+  background:
+    radial-gradient(circle at 78% 18%, var(--case-glow, rgba(41, 45, 203, 0.14)), transparent 30%),
+    var(--paper);
+}
+
+.usecase-placeholder {
+  pointer-events: none;
+}
+
+.usecase-tile span {
+  align-self: flex-start;
+  margin-bottom: auto;
+  color: rgba(25, 25, 25, 0.56);
+  font-size: 0.875rem;
+  line-height: 1.3;
+}
+
+.usecase-tile h2 {
+  max-width: min(12em, 100%);
+  min-width: 0;
+  margin: 0;
+  font-size: clamp(2.25rem, 4.4vw, 4.4rem);
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+.usecase-tile p {
+  max-width: min(520px, 100%);
+  min-width: 0;
+  margin: 0;
+  color: rgba(25, 25, 25, 0.62);
+}
+
+.aviation-theme { --case-glow: rgba(41, 45, 203, 0.18); --case-tint: #dfe6ff; }
+.gameface-theme { --case-glow: rgba(51, 67, 120, 0.2); --case-tint: #e1e6f6; }
+.defence-theme { --case-glow: rgba(70, 76, 64, 0.24); --case-tint: #dfe2d8; }
+.healthcare-theme { --case-glow: rgba(38, 157, 214, 0.24); --case-tint: #dbeeff; }
+.petroleum-theme { --case-glow: rgba(145, 120, 70, 0.24); --case-tint: #ece4d4; }
+.manufacturing-theme { --case-glow: rgba(110, 120, 130, 0.22); --case-tint: #e5e7e8; }
+.pilot-theme { --case-glow: rgba(130, 80, 150, 0.18); --case-tint: #eadff0; }
+
+body.aviation-theme { --case-accent: #292dcb; --case-deep: #10143a; }
+body.defence-theme { --case-accent: #5f6f55; --case-deep: #171b15; }
+body.healthcare-theme { --case-accent: #238ec2; --case-deep: #071f36; }
+body.petroleum-theme { --case-accent: #8d6d33; --case-deep: #241b10; }
+body.manufacturing-theme { --case-accent: #59636e; --case-deep: #1a1d20; }
+body.pilot-theme { --case-accent: #7a4aa0; --case-deep: #24172f; }
+
+.usecase-hero {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: minmax(380px, 1.12fr) minmax(320px, 0.88fr);
+  gap: 1px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 24% 38%, var(--case-glow), transparent 34%),
+    var(--case-deep, var(--ink));
+  padding-top: 0;
+  color: var(--paper);
+}
+
+.usecase-hero > div {
+  display: grid;
+  align-content: end;
+  padding: 116px min(4vw, 56px) 58px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06), transparent 54%),
+    transparent;
+}
+
+.usecase-hero video {
+  width: min(calc(100% - 40px), 900px);
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  align-self: center;
+  justify-self: center;
+  display: block;
+  border: 1px solid rgba(249, 249, 248, 0.18);
+  border-radius: var(--radius);
+  object-fit: contain;
+  background:
+    radial-gradient(circle at 50% 42%, var(--case-glow), transparent 32%),
+    var(--case-deep, var(--case-tint));
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.26);
+}
+
+.usecase-hero h1 {
+  max-width: 8.5em;
+  font-size: clamp(4rem, 7.2vw, 6.5rem);
+  line-height: 0.96;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.usecase-hero p:not(.eyebrow) {
+  max-width: 620px;
+  min-width: 0;
+  color: rgba(249, 249, 248, 0.72);
+  font-size: 1.25rem;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+.split-video > div {
+  order: 2;
+}
+
+.compact-hero {
+  min-height: 760px;
+  grid-template-columns: 1fr;
+}
+
+.compact-hero > div {
+  background:
+    linear-gradient(135deg, var(--case-tint), transparent 58%),
+    radial-gradient(circle at 82% 22%, var(--case-glow), transparent 30%),
+    var(--paper);
+}
+
+.usecase-brief {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+}
+
+.usecase-brief article {
+  min-height: 320px;
+  padding: 34px;
+  background: var(--paper);
+}
+
+.usecase-brief span {
+  display: inline-grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--paper);
+}
+
+.usecase-brief h2 {
+  margin: 44px 0 18px;
+  font-size: clamp(2.25rem, 3.6vw, 4rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.usecase-brief p {
+  max-width: 460px;
+  color: rgba(25, 25, 25, 0.62);
+}
+
+.case-detail-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+  gap: 56px;
+  align-items: start;
+  padding: 96px min(4vw, 56px);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.case-detail-section h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2.75rem, 5vw, 5rem);
+}
+
+.case-detail-section p:not(.eyebrow) {
+  max-width: 680px;
+  color: rgba(25, 25, 25, 0.62);
+}
+
+.case-points {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.case-points article {
+  display: grid;
+  grid-template-columns: minmax(180px, max-content) minmax(0, 1fr);
+  gap: 30px;
+  align-items: center;
+  min-height: 128px;
+  padding: 24px;
+  background: var(--white);
+}
+
+.case-points strong {
+  color: var(--blue);
+  font-size: clamp(2rem, 3vw, 3.6rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.case-points span {
+  color: rgba(25, 25, 25, 0.62);
+  line-height: 1.4;
+}
+
+.asset-strip {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 92px min(4vw, 56px);
+  background:
+    radial-gradient(circle at 82% 24%, var(--case-glow), transparent 26%),
+    var(--ink);
+  color: var(--paper);
+}
+
+.asset-strip h2 {
+  margin-bottom: 20px;
+}
+
+.asset-strip p:not(.eyebrow) {
+  max-width: 560px;
+  color: rgba(249, 249, 248, 0.68);
+}
+
+.asset-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.light-button {
+  border-color: rgba(249, 249, 248, 0.46);
+  color: var(--paper);
+}
+
+/* Individual use-case treatments */
+body.aviation-theme .usecase-hero {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: minmax(380px, 1.12fr) minmax(320px, 0.88fr);
+  gap: 1px;
+  background: var(--case-deep);
+  overflow: hidden;
+}
+
+body.aviation-theme .usecase-hero video {
+  position: static;
+  min-height: 0;
+  filter: saturate(0.9) contrast(1.04);
+}
+
+body.aviation-theme .usecase-hero::after {
+  content: none;
+}
+
+body.aviation-theme .usecase-hero > div {
+  max-width: none;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(41, 45, 203, 0.24), transparent 32%),
+    transparent;
+}
+
+body.aviation-theme .usecase-hero p:not(.eyebrow) {
+  color: rgba(249, 249, 248, 0.76);
+}
+
+body.defence-theme .usecase-hero,
+body.defence-theme .case-detail-section,
+body.defence-theme .asset-strip {
+  background:
+    linear-gradient(135deg, rgba(95, 111, 85, 0.18), transparent 46%),
+    var(--case-deep);
+  color: var(--paper);
+}
+
+body.defence-theme .usecase-hero > div {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent),
+    var(--case-deep);
+}
+
+body.defence-theme .usecase-hero p:not(.eyebrow),
+body.defence-theme .case-detail-section p:not(.eyebrow),
+body.defence-theme .case-points span,
+body.defence-theme .asset-strip p:not(.eyebrow) {
+  color: rgba(249, 249, 248, 0.68);
+}
+
+body.defence-theme .case-points,
+body.defence-theme .case-points article {
+  border-color: rgba(249, 249, 248, 0.12);
+  background: rgba(249, 249, 248, 0.07);
+}
+
+body.healthcare-theme .usecase-hero {
+  grid-template-columns: minmax(360px, 1.08fr) minmax(320px, 0.92fr);
+  background:
+    radial-gradient(circle at 24% 42%, rgba(38, 157, 214, 0.36), transparent 30%),
+    linear-gradient(135deg, #05182b, #0a3155 52%, #071f36);
+  color: var(--paper);
+}
+
+body.healthcare-theme .usecase-hero > div {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07), transparent 56%),
+    transparent;
+}
+
+body.healthcare-theme .case-detail-section {
+  background:
+    linear-gradient(180deg, rgba(35, 142, 194, 0.1), transparent 56%),
+    var(--paper);
+}
+
+body.healthcare-theme .usecase-hero p:not(.eyebrow) {
+  color: rgba(249, 249, 248, 0.72);
+}
+
+body.healthcare-theme .usecase-hero video {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(38, 157, 214, 0.34), transparent 34%),
+    #061b2a;
+}
+
+body.healthcare-theme .usecase-brief article,
+body.healthcare-theme .case-points article {
+  background: #f5fbff;
+}
+
+body.petroleum-theme .usecase-hero {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 44px),
+    radial-gradient(circle at 26% 42%, rgba(141, 109, 51, 0.3), transparent 32%),
+    var(--case-deep);
+}
+
+body.petroleum-theme .usecase-hero > div,
+body.petroleum-theme .asset-strip {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 44px),
+    linear-gradient(135deg, rgba(141, 109, 51, 0.28), transparent 52%),
+    var(--case-deep);
+  color: var(--paper);
+}
+
+body.petroleum-theme .usecase-hero video {
+  filter: brightness(1.65) contrast(1.02) saturate(1.08);
+}
+
+body.petroleum-theme .usecase-hero p:not(.eyebrow),
+body.petroleum-theme .asset-strip p:not(.eyebrow) {
+  color: rgba(249, 249, 248, 0.72);
+}
+
+body.petroleum-theme .usecase-brief span,
+body.petroleum-theme .case-points strong {
+  background: var(--case-accent);
+  color: var(--paper);
+}
+
+body.manufacturing-theme .compact-hero {
+  min-height: 720px;
+}
+
+body.manufacturing-theme .compact-hero > div {
+  background:
+    linear-gradient(90deg, rgba(26, 29, 32, 0.84), rgba(26, 29, 32, 0.54)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 24px),
+    linear-gradient(135deg, #343a40, #111315);
+  color: var(--paper);
+}
+
+body.manufacturing-theme .usecase-hero p:not(.eyebrow) {
+  color: rgba(249, 249, 248, 0.74);
+}
+
+body.manufacturing-theme .usecase-brief article:nth-child(odd),
+body.manufacturing-theme .case-points article:nth-child(odd) {
+  background: #f0f1f1;
+}
+
+body.pilot-theme .usecase-hero > div,
+body.pilot-theme .case-detail-section {
+  background:
+    linear-gradient(90deg, rgba(122, 74, 160, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(122, 74, 160, 0.08) 1px, transparent 1px),
+    var(--paper);
+  background-size: 42px 42px;
+}
+
+body.pilot-theme .usecase-hero > div {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(178, 110, 220, 0.28), transparent 30%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    var(--case-deep);
+  background-size: auto, 42px 42px, 42px 42px, auto;
+  color: var(--paper);
+}
+
+body.pilot-theme .usecase-hero p:not(.eyebrow) {
+  color: rgba(249, 249, 248, 0.74);
+}
+
+body.pilot-theme .usecase-brief {
+  counter-reset: pilot-step;
+}
+
+body.pilot-theme .usecase-brief article {
+  position: relative;
+  overflow: hidden;
+}
+
+body.pilot-theme .usecase-brief article::after {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  z-index: 0;
+  color: rgba(122, 74, 160, 0.1);
+  content: "DATA";
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  letter-spacing: 0;
+}
+
+body.pilot-theme .usecase-brief article > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.usecase .usecase-brief span,
+body.usecase .case-points strong {
+  color: var(--case-accent);
+}
+
+body.usecase .usecase-brief span {
+  background: var(--case-accent);
+  color: var(--paper);
+}
+
+body.defence-theme .case-points strong,
+body.defence-theme .usecase-brief span,
+body.petroleum-theme .case-detail-section .case-points strong {
+  color: var(--paper);
+}
+
+/* Stronger per-page identities */
+body.usecase {
+  --case-header-bg: rgba(255, 254, 250, 0.82);
+  --case-header-border: rgba(16, 17, 18, 0.12);
+  --case-on-dark-accent: var(--case-accent);
+}
+
+body.usecase .site-header {
+  border-color: var(--case-header-border);
+  background: var(--case-header-bg);
+}
+
+body.usecase .nav-cta {
+  background: var(--case-accent);
+  color: var(--paper);
+}
+
+body.usecase .desktop-nav a[aria-current="page"] {
+  color: var(--case-accent);
+}
+
+body.usecase .eyebrow {
+  color: var(--case-accent);
+}
+
+body.usecase .usecase-hero .eyebrow,
+body.usecase .asset-strip .eyebrow,
+body.defence-theme .case-detail-section .eyebrow {
+  color: var(--case-on-dark-accent);
+}
+
+body.usecase .button-primary {
+  background: var(--case-accent);
+  border-color: var(--case-accent);
+}
+
+body.aviation-theme {
+  --case-accent: #3c7dff;
+  --case-deep: #07111f;
+  --case-glow: rgba(60, 125, 255, 0.34);
+  --case-tint: #e6eefb;
+  --case-header-bg: rgba(234, 241, 249, 0.86);
+  background: #e9eef5;
+}
+
+body.aviation-theme .usecase-hero {
+  min-height: 720px;
+  grid-template-columns: minmax(360px, 0.82fr) minmax(420px, 1.18fr);
+  background:
+    linear-gradient(90deg, rgba(7, 17, 31, 0.98), rgba(7, 17, 31, 0.86)),
+    repeating-linear-gradient(90deg, rgba(60, 125, 255, 0.18) 0 1px, transparent 1px 76px),
+    var(--case-deep);
+}
+
+body.aviation-theme .usecase-hero > div {
+  align-content: center;
+  min-height: 100%;
+  border-right: 1px solid rgba(234, 241, 249, 0.12);
+  background:
+    radial-gradient(circle at 16% 30%, rgba(60, 125, 255, 0.28), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 60%);
+}
+
+body.aviation-theme .usecase-hero video {
+  width: min(calc(100% - 64px), 980px);
+  border-radius: 0 0 72px 0;
+  border-color: rgba(188, 211, 244, 0.32);
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.36);
+}
+
+body.aviation-theme .usecase-brief {
+  background: #d4dde9;
+}
+
+body.aviation-theme .usecase-brief article {
+  background:
+    linear-gradient(180deg, rgba(60, 125, 255, 0.1), transparent 45%),
+    #f8fbff;
+}
+
+body.aviation-theme .case-detail-section {
+  background:
+    linear-gradient(90deg, rgba(60, 125, 255, 0.08), transparent 42%),
+    #eef4fb;
+}
+
+body.aviation-theme .case-points {
+  border-radius: 0 42px 0 0;
+}
+
+body.aviation-theme .asset-strip {
+  background:
+    linear-gradient(90deg, rgba(60, 125, 255, 0.2), transparent 48%),
+    #07111f;
+}
+
+body.defence-theme {
+  --case-accent: #9bb26f;
+  --case-deep: #11160f;
+  --case-glow: rgba(155, 178, 111, 0.28);
+  --case-tint: #e5ead8;
+  --case-header-bg: rgba(21, 27, 18, 0.78);
+  --case-header-border: rgba(229, 234, 216, 0.18);
+  --case-on-dark-accent: #c9dfa0;
+  background: #11160f;
+}
+
+body.defence-theme .site-header,
+body.defence-theme .desktop-nav a,
+body.defence-theme .brand {
+  color: var(--paper);
+}
+
+body.defence-theme .site-header .brand-logo {
+  filter: invert(1);
+}
+
+body.defence-theme .menu-button span {
+  background: var(--paper);
+}
+
+body.defence-theme .usecase-hero {
+  min-height: 760px;
+  grid-template-columns: minmax(340px, 0.92fr) minmax(340px, 1.08fr);
+  background:
+    linear-gradient(90deg, rgba(17, 22, 15, 0.94), rgba(17, 22, 15, 0.76)),
+    repeating-linear-gradient(0deg, rgba(155, 178, 111, 0.11) 0 1px, transparent 1px 38px),
+    repeating-linear-gradient(90deg, rgba(155, 178, 111, 0.09) 0 1px, transparent 1px 38px),
+    var(--case-deep);
+}
+
+body.defence-theme .usecase-hero > div {
+  border-left: 8px solid var(--case-accent);
+  background:
+    linear-gradient(180deg, rgba(155, 178, 111, 0.14), transparent 44%),
+    rgba(17, 22, 15, 0.72);
+}
+
+body.defence-theme .usecase-hero video {
+  width: min(calc(100% - 48px), 840px);
+  border-radius: 0;
+  border-color: rgba(155, 178, 111, 0.42);
+  filter: grayscale(0.32) contrast(1.16) brightness(0.92);
+}
+
+body.defence-theme .usecase-brief {
+  background: rgba(229, 234, 216, 0.14);
+}
+
+body.defence-theme .usecase-brief article {
+  background:
+    linear-gradient(135deg, rgba(155, 178, 111, 0.14), transparent 48%),
+    #171d14;
+  color: var(--paper);
+}
+
+body.defence-theme .usecase-brief p {
+  color: rgba(249, 249, 248, 0.64);
+}
+
+body.defence-theme .case-detail-section {
+  border-top: 1px solid rgba(229, 234, 216, 0.13);
+}
+
+body.defence-theme .case-points {
+  border-radius: 0;
+}
+
+body.defence-theme .case-points article {
+  border-left: 4px solid var(--case-accent);
+}
+
+body.defence-theme .asset-strip {
+  border-top: 1px solid rgba(229, 234, 216, 0.13);
+}
+
+body.healthcare-theme {
+  --case-accent: #008fa3;
+  --case-deep: #083047;
+  --case-glow: rgba(0, 143, 163, 0.28);
+  --case-tint: #dff6f4;
+  --case-header-bg: rgba(246, 253, 252, 0.88);
+  background: #f1fbfa;
+}
+
+body.healthcare-theme .usecase-hero {
+  min-height: 700px;
+  grid-template-columns: minmax(360px, 1fr) minmax(340px, 0.92fr);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(112, 211, 202, 0.32), transparent 28%),
+    linear-gradient(135deg, #f5fffe 0%, #dff6f4 48%, #0d4158 48%, #083047 100%);
+  color: var(--ink);
+}
+
+body.healthcare-theme .usecase-hero > div {
+  align-content: center;
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.22)),
+    transparent;
+}
+
+body.healthcare-theme .usecase-hero h1 {
+  max-width: 9.2em;
+}
+
+body.healthcare-theme .usecase-hero p:not(.eyebrow) {
+  color: rgba(16, 17, 18, 0.68);
+}
+
+body.healthcare-theme .usecase-hero video {
+  width: min(calc(100% - 48px), 800px);
+  border-radius: 48px 48px 8px 48px;
+  border: 10px solid rgba(255, 255, 255, 0.62);
+  background: #083047;
+}
+
+body.healthcare-theme .usecase-brief {
+  background: #b9e6e3;
+}
+
+body.healthcare-theme .usecase-brief article {
+  background:
+    radial-gradient(circle at 88% 16%, rgba(0, 143, 163, 0.12), transparent 24%),
+    #f8fffe;
+}
+
+body.healthcare-theme .usecase-brief article:nth-child(2) {
+  background: #e9faf8;
+}
+
+body.healthcare-theme .case-detail-section {
+  background:
+    linear-gradient(180deg, #ffffff, #e8f8f6);
+}
+
+body.healthcare-theme .case-points {
+  border-color: #b9e6e3;
+  border-radius: 36px;
+}
+
+body.healthcare-theme .case-points article {
+  background: rgba(255, 255, 255, 0.86);
+}
+
+body.healthcare-theme .asset-strip {
+  background:
+    radial-gradient(circle at 78% 22%, rgba(112, 211, 202, 0.28), transparent 28%),
+    linear-gradient(135deg, #083047, #004f61);
+}
+
+body.petroleum-theme {
+  --case-accent: #c58a2b;
+  --case-deep: #1f160b;
+  --case-glow: rgba(197, 138, 43, 0.34);
+  --case-tint: #f0dfc3;
+  --case-header-bg: rgba(35, 25, 12, 0.78);
+  --case-header-border: rgba(240, 223, 195, 0.24);
+  --case-on-dark-accent: #f1b955;
+  background: #24180c;
+}
+
+body.petroleum-theme .site-header,
+body.petroleum-theme .desktop-nav a,
+body.petroleum-theme .brand {
+  color: var(--paper);
+}
+
+body.petroleum-theme .site-header .brand-logo {
+  filter: invert(1);
+}
+
+body.petroleum-theme .menu-button span {
+  background: var(--paper);
+}
+
+body.petroleum-theme .usecase-hero {
+  min-height: 720px;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(360px, 1.1fr);
+  background:
+    linear-gradient(110deg, rgba(31, 22, 11, 0.95), rgba(31, 22, 11, 0.68)),
+    repeating-linear-gradient(135deg, rgba(197, 138, 43, 0.16) 0 12px, transparent 12px 28px),
+    var(--case-deep);
+}
+
+body.petroleum-theme .usecase-hero > div {
+  border-top: 10px solid var(--case-accent);
+}
+
+body.petroleum-theme .usecase-hero video {
+  border-radius: 8px;
+  border-color: rgba(197, 138, 43, 0.42);
+  box-shadow: 0 28px 0 rgba(197, 138, 43, 0.18), 0 44px 90px rgba(0, 0, 0, 0.38);
+}
+
+body.petroleum-theme .usecase-brief {
+  background: #3b2c18;
+}
+
+body.petroleum-theme .usecase-brief article {
+  background:
+    linear-gradient(180deg, rgba(197, 138, 43, 0.16), transparent 54%),
+    #fff7e8;
+}
+
+body.petroleum-theme .case-detail-section {
+  background:
+    linear-gradient(90deg, #fff3dc, #f5e5c8);
+}
+
+body.petroleum-theme .case-points {
+  border-color: #d4a65b;
+  border-radius: 8px;
+}
+
+body.petroleum-theme .case-points article {
+  background: #fff9ee;
+}
+
+body.manufacturing-theme {
+  --case-accent: #d9861c;
+  --case-deep: #141719;
+  --case-glow: rgba(217, 134, 28, 0.28);
+  --case-tint: #e7ecec;
+  --case-header-bg: rgba(244, 246, 244, 0.86);
+  background: #eef0ef;
+}
+
+body.manufacturing-theme .compact-hero {
+  min-height: 760px;
+  background:
+    repeating-linear-gradient(90deg, rgba(20, 23, 25, 0.12) 0 1px, transparent 1px 80px),
+    #dfe4e4;
+}
+
+body.manufacturing-theme .compact-hero > div {
+  min-height: 760px;
+  align-content: center;
+  border-bottom: 18px solid var(--case-accent);
+  background:
+    linear-gradient(90deg, rgba(20, 23, 25, 0.92), rgba(20, 23, 25, 0.54)),
+    repeating-linear-gradient(135deg, rgba(217, 134, 28, 0.34) 0 16px, transparent 16px 32px),
+    linear-gradient(135deg, #293034, #111315);
+}
+
+body.manufacturing-theme .usecase-brief {
+  background: #c9cfce;
+}
+
+body.manufacturing-theme .usecase-brief article {
+  background:
+    linear-gradient(180deg, rgba(217, 134, 28, 0.12), transparent 42%),
+    #f7f8f6;
+}
+
+body.manufacturing-theme .usecase-brief article:nth-child(2) {
+  background: #ecefed;
+}
+
+body.manufacturing-theme .case-detail-section {
+  background:
+    linear-gradient(90deg, rgba(217, 134, 28, 0.1), transparent 34%),
+    #f4f5f2;
+}
+
+body.manufacturing-theme .case-points {
+  border-radius: 0;
+  border-color: #c9cfce;
+}
+
+body.manufacturing-theme .case-points article {
+  border-left: 7px solid var(--case-accent);
+}
+
+body.manufacturing-theme .asset-strip {
+  background:
+    repeating-linear-gradient(135deg, rgba(217, 134, 28, 0.26) 0 14px, transparent 14px 30px),
+    linear-gradient(90deg, rgba(20, 23, 25, 0.96), rgba(20, 23, 25, 0.86)),
+    #141719;
+}
+
+body.pilot-theme {
+  --case-accent: #7d56e8;
+  --case-deep: #18112d;
+  --case-glow: rgba(125, 86, 232, 0.34);
+  --case-tint: #e8e4ff;
+  --case-header-bg: rgba(249, 247, 255, 0.88);
+  background: #f4f1ff;
+}
+
+body.pilot-theme .usecase-hero {
+  min-height: 720px;
+  grid-template-columns: minmax(360px, 1.04fr) minmax(360px, 0.96fr);
+  background:
+    radial-gradient(circle at 20% 22%, rgba(125, 86, 232, 0.3), transparent 26%),
+    linear-gradient(135deg, #201641, #18112d 58%, #0d1c2e);
+}
+
+body.pilot-theme .usecase-hero > div {
+  align-content: center;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 80% 14%, rgba(92, 205, 190, 0.18), transparent 24%);
+  background-size: 44px 44px, 44px 44px, auto;
+}
+
+body.pilot-theme .usecase-hero video {
+  border-radius: 34px;
+  border-color: rgba(232, 228, 255, 0.28);
+  background: #18112d;
+}
+
+body.pilot-theme .usecase-brief {
+  background: #d8d0ff;
+}
+
+body.pilot-theme .usecase-brief article {
+  background:
+    radial-gradient(circle at 86% 18%, rgba(92, 205, 190, 0.18), transparent 26%),
+    #fbfaff;
+}
+
+body.pilot-theme .usecase-brief article::after {
+  color: rgba(125, 86, 232, 0.08);
+  letter-spacing: 0;
+}
+
+body.pilot-theme .case-detail-section {
+  background:
+    linear-gradient(90deg, rgba(125, 86, 232, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(125, 86, 232, 0.08) 1px, transparent 1px),
+    #f8f6ff;
+  background-size: 42px 42px;
+}
+
+body.pilot-theme .case-points {
+  border-color: #d8d0ff;
+  border-radius: 22px;
+}
+
+body.pilot-theme .case-points article {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+body.pilot-theme .asset-strip {
+  background:
+    radial-gradient(circle at 82% 22%, rgba(92, 205, 190, 0.2), transparent 26%),
+    linear-gradient(135deg, #18112d, #261747);
+}
+
+/* Polished modern use-case presentation */
+body.usecase {
+  --case-surface: rgba(255, 255, 255, 0.7);
+  --case-soft-shadow: 0 28px 90px rgba(16, 17, 18, 0.12);
+  --case-strong-shadow: 0 34px 110px rgba(0, 0, 0, 0.32);
+}
+
+body.usecase .site-header {
+  box-shadow: 0 18px 46px rgba(16, 17, 18, 0.09);
+}
+
+body.usecase .nav-cta,
+body.usecase .button {
+  box-shadow: 0 14px 34px rgba(16, 17, 18, 0.14);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+body.usecase .nav-cta:hover,
+body.usecase .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 46px rgba(16, 17, 18, 0.18);
+}
+
+body.usecase .usecase-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+body.usecase .usecase-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255, 255, 255, 0.16), transparent 24%),
+    radial-gradient(circle at 12% 82%, var(--case-glow), transparent 28%);
+  pointer-events: none;
+}
+
+body.usecase .usecase-hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+body.usecase .usecase-hero h1 {
+  max-width: 9.4em;
+  margin-bottom: 28px;
+}
+
+body.usecase .usecase-hero p:not(.eyebrow) {
+  max-width: 680px;
+  font-size: clamp(1.125rem, 1.7vw, 1.45rem);
+}
+
+body.usecase .usecase-hero video {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(0);
+  box-shadow: var(--case-strong-shadow);
+}
+
+body.usecase .usecase-brief {
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(16, 17, 18, 0.08));
+}
+
+body.usecase .usecase-brief article {
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  padding: 38px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
+}
+
+body.usecase .usecase-brief article::before {
+  position: absolute;
+  top: -64px;
+  right: -64px;
+  width: 168px;
+  height: 168px;
+  border: 1px solid color-mix(in srgb, var(--case-accent), transparent 58%);
+  border-radius: 50%;
+  content: "";
+  opacity: 0.66;
+}
+
+body.usecase .usecase-brief article > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.usecase .usecase-brief span {
+  width: 58px;
+  height: 58px;
+  box-shadow: 0 18px 40px color-mix(in srgb, var(--case-accent), transparent 72%);
+}
+
+body.usecase .usecase-brief h2 {
+  max-width: 8em;
+}
+
+body.usecase .case-detail-section {
+  position: relative;
+  overflow: hidden;
+}
+
+body.usecase .case-detail-section::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 86% 18%, color-mix(in srgb, var(--case-accent), transparent 86%), transparent 22%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.28), transparent 46%);
+  pointer-events: none;
+}
+
+body.usecase .case-detail-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.usecase .case-points {
+  border: 0;
+  box-shadow: var(--case-soft-shadow);
+}
+
+body.usecase .case-points article {
+  min-height: 142px;
+  border-bottom: 1px solid rgba(16, 17, 18, 0.08);
+}
+
+body.usecase .case-points article:last-child {
+  border-bottom: 0;
+}
+
+body.usecase .case-points strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  min-height: 74px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--case-accent), white 86%);
+  padding: 0 20px;
+  color: var(--case-accent);
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
+}
+
+body.usecase .asset-strip {
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  min-height: 330px;
+}
+
+body.usecase .asset-strip::before {
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(249, 249, 248, 0.13);
+  border-radius: 28px;
+  content: "";
+  pointer-events: none;
+}
+
+body.usecase .asset-strip > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.usecase .light-button {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+body.aviation-theme .usecase-hero {
+  background:
+    linear-gradient(110deg, rgba(6, 13, 25, 0.98), rgba(8, 32, 72, 0.82)),
+    linear-gradient(135deg, rgba(60, 125, 255, 0.18), transparent 42%),
+    var(--case-deep);
+}
+
+body.aviation-theme .usecase-hero::after {
+  position: absolute;
+  right: min(4vw, 56px);
+  bottom: 42px;
+  z-index: 0;
+  width: min(38vw, 520px);
+  height: 120px;
+  border: 1px solid rgba(188, 211, 244, 0.18);
+  border-radius: 999px;
+  content: "";
+  transform: rotate(-10deg);
+}
+
+body.aviation-theme .usecase-hero video {
+  border-radius: 28px;
+  outline: 10px solid rgba(255, 255, 255, 0.06);
+}
+
+body.aviation-theme .case-points strong {
+  background: #dce9ff;
+}
+
+body.defence-theme .usecase-hero {
+  background:
+    linear-gradient(90deg, rgba(11, 15, 10, 0.98), rgba(27, 35, 23, 0.78)),
+    repeating-linear-gradient(0deg, rgba(155, 178, 111, 0.12) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(155, 178, 111, 0.1) 0 1px, transparent 1px 44px),
+    var(--case-deep);
+}
+
+body.defence-theme .usecase-brief article {
+  border-top: 1px solid rgba(201, 223, 160, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.defence-theme .case-points {
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+}
+
+body.defence-theme .case-points strong {
+  background: rgba(201, 223, 160, 0.13);
+  color: #dceeb7;
+}
+
+body.healthcare-theme .usecase-hero {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(108, 220, 210, 0.38), transparent 26%),
+    linear-gradient(135deg, #f7fffe 0%, #ddf7f5 50%, #0b5268 50%, #073148 100%);
+}
+
+body.healthcare-theme .usecase-hero video {
+  box-shadow: 0 34px 90px rgba(0, 86, 101, 0.28);
+}
+
+body.healthcare-theme .case-points strong {
+  background: #d9f5f1;
+}
+
+body.petroleum-theme .usecase-hero {
+  background:
+    linear-gradient(110deg, rgba(29, 20, 9, 0.96), rgba(57, 35, 10, 0.72)),
+    radial-gradient(circle at 82% 20%, rgba(241, 185, 85, 0.18), transparent 25%),
+    repeating-linear-gradient(135deg, rgba(197, 138, 43, 0.16) 0 10px, transparent 10px 30px),
+    var(--case-deep);
+}
+
+body.petroleum-theme .usecase-hero video {
+  outline: 1px solid rgba(241, 185, 85, 0.26);
+  outline-offset: 12px;
+}
+
+body.petroleum-theme .case-points strong {
+  background: #fff0d3;
+  color: #9b640f;
+}
+
+body.manufacturing-theme .compact-hero > div {
+  background:
+    radial-gradient(circle at 84% 20%, rgba(217, 134, 28, 0.3), transparent 24%),
+    linear-gradient(90deg, rgba(20, 23, 25, 0.95), rgba(20, 23, 25, 0.56)),
+    repeating-linear-gradient(135deg, rgba(217, 134, 28, 0.28) 0 14px, transparent 14px 34px),
+    linear-gradient(135deg, #293034, #111315);
+}
+
+body.manufacturing-theme .compact-hero::after {
+  position: absolute;
+  right: min(6vw, 84px);
+  bottom: 66px;
+  z-index: 0;
+  width: min(34vw, 460px);
+  height: 180px;
+  border: 1px solid rgba(217, 134, 28, 0.32);
+  content: "";
+  transform: skewX(-14deg);
+}
+
+body.manufacturing-theme .case-points strong {
+  background: #fff0d8;
+  color: #a45d00;
+}
+
+body.pilot-theme .usecase-hero {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(125, 86, 232, 0.34), transparent 25%),
+    radial-gradient(circle at 78% 18%, rgba(92, 205, 190, 0.18), transparent 24%),
+    linear-gradient(135deg, #211447, #18112d 56%, #0d1c2e);
+}
+
+body.pilot-theme .usecase-hero video {
+  outline: 12px solid rgba(255, 255, 255, 0.05);
+}
+
+body.pilot-theme .case-points strong {
+  background: #e8e1ff;
+}
+
+@media (max-width: 880px) {
+  .usecase-list,
+  .usecase-hero,
+  .usecase-brief {
+    grid-template-columns: 1fr;
+  }
+
+  body.aviation-theme .usecase-hero,
+  body.healthcare-theme .usecase-hero {
+    grid-template-columns: 1fr;
+  }
+
+  body.aviation-theme .usecase-hero > div {
+    order: -1;
+  }
+
+  .usecase-list {
+    gap: 0;
+  }
+
+  .usecase-tile {
+    min-height: auto;
+    padding: 34px 20px;
+  }
+
+  .usecase-placeholder {
+    display: none;
+  }
+
+  .usecase-tile span {
+    margin-bottom: 52px;
+  }
+
+  .usecase-tile h2 {
+    max-width: 11em;
+    font-size: clamp(2.25rem, 11vw, 3.8rem);
+  }
+
+  .usecase-hero > div {
+    padding: 124px 20px 62px;
+  }
+
+  .usecase-hero video {
+    width: 100%;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    min-height: 0;
+  }
+
+  .split-video > div {
+    order: 0;
+  }
+
+  .asset-strip {
+    display: block;
+    padding: 76px 20px;
+  }
+
+  .case-detail-section {
+    grid-template-columns: 1fr;
+    padding: 76px 20px;
+  }
+
+  .usecase-brief article {
+    min-height: auto;
+    padding: 32px 20px;
+  }
+
+  .usecase-brief h2 {
+    margin-top: 38px;
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+  }
+
+  .case-points article {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .asset-actions {
+    justify-content: flex-start;
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-hero h1 {
+    font-size: clamp(3rem, 13.6vw, 3.45rem);
+    line-height: 1.02;
+    overflow-wrap: break-word;
+  }
+
+  .page-hero p:not(.eyebrow),
+  .usecase-tile p,
+  .usecase-brief p,
+  .case-detail-section p,
+  .asset-strip p {
+    overflow-wrap: break-word;
+  }
+
+  .usecase-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .usecase-tile {
+    padding: 30px 18px;
+  }
+
+  .usecase-tile span {
+    margin-bottom: 44px;
+  }
+
+  .usecase-tile h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.06;
+  }
+
+  .usecase-hero h1,
+  .compact-hero h1 {
+    font-size: clamp(3rem, 13.2vw, 3.6rem);
+    line-height: 1.02;
+  }
+
+  .case-detail-section h2,
+  .asset-strip h2 {
+    font-size: clamp(2.35rem, 11vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .asset-actions,
+  .asset-actions .button,
+  .asset-strip > .button {
+    width: 100%;
+  }
+}
+
+/* Remove decorative shape overlays from use-case pages */
+body.usecase .usecase-hero::before,
+body.usecase .usecase-hero::after,
+body.usecase .usecase-brief article::before,
+body.usecase .case-detail-section::before,
+body.usecase .asset-strip::before,
+body.manufacturing-theme .compact-hero::after,
+body.pilot-theme .usecase-brief article::after {
+  display: none;
+  content: none;
+}
+
+/* Final clean use-case polish */
+body.usecase {
+  --case-page-bg: #f6f4ef;
+  --case-card-bg: rgba(255, 254, 250, 0.9);
+  --case-card-border: rgba(16, 17, 18, 0.1);
+  --case-copy: rgba(16, 17, 18, 0.66);
+  --case-hero-text: var(--paper);
+  --case-media-border: rgba(255, 255, 255, 0.18);
+  background: var(--case-page-bg);
+}
+
+body.aviation-theme {
+  --case-accent: #3d7cff;
+  --case-deep: #071425;
+  --case-page-bg: #edf3fb;
+  --case-card-bg: #f9fbff;
+  --case-card-border: rgba(61, 124, 255, 0.16);
+}
+
+body.gameface-theme {
+  --case-accent: #334378;
+  --case-deep: #07090f;
+  --case-page-bg: #f1f3f7;
+  --case-card-bg: #fbfcff;
+  --case-card-border: rgba(51, 67, 120, 0.16);
+}
+
+body.defence-theme {
+  --case-accent: #aecb73;
+  --case-deep: #10160e;
+  --case-page-bg: #11160f;
+  --case-card-bg: rgba(26, 34, 23, 0.92);
+  --case-card-border: rgba(174, 203, 115, 0.18);
+  --case-copy: rgba(249, 249, 248, 0.68);
+}
+
+body.healthcare-theme {
+  --case-accent: #008fa3;
+  --case-deep: #062d3d;
+  --case-page-bg: #effaf8;
+  --case-card-bg: #fbfffe;
+  --case-card-border: rgba(0, 143, 163, 0.14);
+}
+
+body.petroleum-theme {
+  --case-accent: #c88725;
+  --case-deep: #201306;
+  --case-page-bg: #f3e8d7;
+  --case-card-bg: #fff8eb;
+  --case-card-border: rgba(200, 135, 37, 0.22);
+}
+
+body.manufacturing-theme {
+  --case-accent: #d77d19;
+  --case-deep: #14181a;
+  --case-page-bg: #eef0ed;
+  --case-card-bg: #fbfcf9;
+  --case-card-border: rgba(215, 125, 25, 0.18);
+}
+
+body.pilot-theme {
+  --case-accent: #7b5be8;
+  --case-deep: #171032;
+  --case-page-bg: #f4f1ff;
+  --case-card-bg: #fcfbff;
+  --case-card-border: rgba(123, 91, 232, 0.18);
+}
+
+body.usecase .site-header {
+  border-color: var(--case-card-border);
+  background: rgba(255, 254, 250, 0.84);
+}
+
+body.defence-theme .site-header,
+body.petroleum-theme .site-header {
+  background: rgba(16, 17, 18, 0.72);
+}
+
+body.usecase .nav-cta {
+  background: var(--case-accent);
+}
+
+body.usecase .usecase-hero {
+  min-height: 720px;
+  grid-template-columns: minmax(330px, 0.88fr) minmax(380px, 1.12fr);
+  gap: clamp(28px, 4vw, 64px);
+  padding: 148px min(4vw, 56px) 72px;
+  background:
+    linear-gradient(110deg, rgba(0, 0, 0, 0.28), transparent 58%),
+    linear-gradient(135deg, var(--case-deep), color-mix(in srgb, var(--case-deep), var(--case-accent) 28%));
+  color: var(--case-hero-text);
+}
+
+body.usecase .usecase-hero > div,
+body.usecase .split-video > div {
+  order: 1;
+  align-content: center;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+body.usecase .usecase-hero video,
+body.usecase .split-video video {
+  order: 2;
+}
+
+body.usecase .usecase-hero h1 {
+  max-width: 9em;
+  margin: 20px 0 24px;
+  font-size: clamp(3.45rem, 6vw, 5.8rem);
+  line-height: 0.98;
+}
+
+body.usecase .usecase-hero p:not(.eyebrow) {
+  max-width: 620px;
+  color: rgba(249, 249, 248, 0.75);
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+}
+
+body.usecase .usecase-hero .eyebrow {
+  color: color-mix(in srgb, var(--case-accent), white 38%);
+}
+
+body.usecase .usecase-hero video {
+  width: min(100%, 900px);
+  border: 1px solid var(--case-media-border);
+  border-radius: 24px;
+  outline: 10px solid rgba(255, 255, 255, 0.055);
+  object-fit: cover;
+  box-shadow: 0 36px 100px rgba(0, 0, 0, 0.34);
+}
+
+body.aviation-theme .usecase-hero video {
+  border-radius: 26px 26px 62px 26px;
+}
+
+body.gameface-theme .usecase-hero {
+  background:
+    linear-gradient(110deg, rgba(7, 9, 15, 0.28), transparent 58%),
+    linear-gradient(135deg, #07090f, #141b31 58%, #334378);
+}
+
+body.gameface-theme .usecase-hero video {
+  filter: saturate(0.92) contrast(1.08);
+}
+
+body.healthcare-theme .usecase-hero {
+  background:
+    linear-gradient(110deg, rgba(6, 45, 61, 0.24), transparent 58%),
+    linear-gradient(135deg, #f8fffd 0%, #dff5f3 48%, #062d3d 48%, #062d3d 100%);
+  color: var(--ink);
+}
+
+body.healthcare-theme .usecase-hero h1 {
+  color: var(--ink);
+}
+
+body.healthcare-theme .usecase-hero p:not(.eyebrow) {
+  color: rgba(16, 17, 18, 0.66);
+}
+
+body.healthcare-theme .usecase-hero .eyebrow {
+  color: var(--case-accent);
+}
+
+body.petroleum-theme .usecase-hero video {
+  filter: brightness(1.18) contrast(1.04) saturate(1.05);
+}
+
+body.usecase .usecase-brief {
+  gap: 18px;
+  padding: 32px min(4vw, 56px);
+  background: transparent;
+}
+
+body.usecase .usecase-brief article {
+  min-height: 300px;
+  border: 1px solid var(--case-card-border);
+  border-radius: 22px;
+  background: var(--case-card-bg);
+  padding: 34px;
+  box-shadow: 0 22px 64px rgba(16, 17, 18, 0.08);
+}
+
+body.defence-theme .usecase-brief article {
+  color: var(--paper);
+}
+
+body.usecase .usecase-brief span {
+  width: 54px;
+  height: 54px;
+  background: var(--case-accent);
+  color: var(--paper);
+}
+
+body.usecase .usecase-brief h2 {
+  margin-top: 42px;
+  color: inherit;
+}
+
+body.usecase .usecase-brief p {
+  color: var(--case-copy);
+}
+
+body.usecase .case-detail-section {
+  gap: clamp(34px, 5vw, 72px);
+  padding: 96px min(4vw, 56px);
+  background: color-mix(in srgb, var(--case-page-bg), white 42%);
+}
+
+body.defence-theme .case-detail-section {
+  background: #11160f;
+  color: var(--paper);
+}
+
+body.usecase .case-detail-section p:not(.eyebrow) {
+  color: var(--case-copy);
+}
+
+body.usecase .case-points {
+  gap: 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.usecase .case-points article {
+  min-height: 132px;
+  border: 1px solid var(--case-card-border);
+  border-radius: 20px;
+  background: var(--case-card-bg);
+  box-shadow: 0 18px 54px rgba(16, 17, 18, 0.08);
+}
+
+body.usecase .case-points strong {
+  min-width: 120px;
+  min-height: 64px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--case-accent), transparent 68%);
+  background: color-mix(in srgb, var(--case-accent), white 78%);
+  color: var(--case-accent);
+  text-shadow: none;
+}
+
+body.defence-theme .case-points strong {
+  background: rgba(174, 203, 115, 0.14);
+  color: #d8edab;
+}
+
+body.petroleum-theme .case-points strong {
+  background: #f4dfb8;
+  border-color: rgba(181, 112, 17, 0.28);
+  color: #7a4705;
+}
+
+body.gameface-theme .case-points strong {
+  background: #e2e7f7;
+  border-color: rgba(51, 67, 120, 0.22);
+}
+
+body.manufacturing-theme .case-points strong {
+  background: #f7dfbf;
+  border-color: rgba(215, 125, 25, 0.28);
+  color: #8d4d02;
+}
+
+body.usecase .case-points span {
+  color: var(--case-copy);
+}
+
+body.petroleum-theme .case-detail-section {
+  background: #fffaf1;
+}
+
+body.petroleum-theme .case-points article {
+  background: #fffdf8;
+}
+
+body.manufacturing-theme .case-detail-section {
+  background: #fbfcf9;
+}
+
+body.manufacturing-theme .case-points article {
+  background: #ffffff;
+}
+
+body.usecase .asset-strip {
+  min-height: 300px;
+  background:
+    linear-gradient(135deg, var(--case-deep), color-mix(in srgb, var(--case-deep), var(--case-accent) 28%));
+}
+
+body.usecase .asset-strip .button-primary {
+  background: var(--case-accent);
+  border-color: var(--case-accent);
+}
+
+@media (max-width: 880px) {
+  body.usecase .usecase-hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    min-height: auto;
+    padding: 126px 20px 56px;
+  }
+
+  body.usecase .usecase-hero > div,
+  body.usecase .split-video > div,
+  body.aviation-theme .usecase-hero > div {
+    order: 1;
+  }
+
+  body.usecase .usecase-hero video,
+  body.usecase .split-video video {
+    order: 2;
+    width: 100%;
+    border-radius: 20px;
+    outline-width: 6px;
+  }
+
+  body.healthcare-theme .usecase-hero {
+    background: linear-gradient(135deg, #f8fffd, #dff5f3);
+  }
+
+  body.usecase .usecase-brief {
+    gap: 14px;
+    padding: 20px;
+  }
+
+  body.usecase .usecase-brief article {
+    min-height: auto;
+    border-radius: 18px;
+    padding: 28px 22px;
+  }
+
+  body.usecase .asset-strip {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  body.usecase .usecase-hero h1 {
+    font-size: clamp(2.8rem, 12vw, 3.55rem);
+  }
+
+  body.usecase .case-points article {
+    grid-template-columns: 1fr;
+  }
+
+  body.usecase .case-points strong {
+    width: max-content;
+    max-width: 100%;
+  }
 }
