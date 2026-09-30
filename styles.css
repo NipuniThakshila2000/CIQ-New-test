@@ -1662,8 +1662,8 @@ summary::marker {
 .usecase-tile .tile-icon {
   display: inline-grid;
   position: relative;
-  width: 34px;
-  height: 34px;
+  width: 48px;
+  height: 48px;
   flex: 0 0 auto;
   place-items: center;
   border: 1px solid rgba(25, 25, 25, 0.08);
@@ -1691,117 +1691,117 @@ summary::marker {
 .pilot-theme .tile-icon { --tile-accent: #7a4aa0; }
 
 .gameface-theme .tile-icon::before {
-  width: 5px;
-  height: 5px;
-  top: 8px;
-  left: 16px;
+  width: 7px;
+  height: 7px;
+  top: 11px;
+  left: 23px;
   border-radius: 50%;
-  box-shadow: -5px 7px 0 1px var(--tile-accent), 4px 16px 0 1px var(--tile-accent);
+  box-shadow: -8px 10px 0 1px var(--tile-accent), 6px 22px 0 1px var(--tile-accent);
 }
 
 .gameface-theme .tile-icon::after {
-  width: 15px;
-  height: 3px;
-  top: 18px;
-  left: 10px;
+  width: 22px;
+  height: 4px;
+  top: 25px;
+  left: 14px;
   border-radius: 999px;
   transform: rotate(-28deg);
 }
 
 .aviation-theme .tile-icon::before {
-  width: 18px;
-  height: 3px;
-  top: 15px;
-  left: 8px;
+  width: 26px;
+  height: 4px;
+  top: 22px;
+  left: 11px;
   border-radius: 999px;
   transform: rotate(-28deg);
 }
 
 .aviation-theme .tile-icon::after {
-  width: 10px;
-  height: 10px;
-  top: 11px;
-  left: 12px;
+  width: 15px;
+  height: 15px;
+  top: 16px;
+  left: 17px;
   background: transparent;
-  border-top: 3px solid var(--tile-accent);
-  border-left: 3px solid var(--tile-accent);
+  border-top: 4px solid var(--tile-accent);
+  border-left: 4px solid var(--tile-accent);
   transform: rotate(-28deg);
 }
 
 .defence-theme .tile-icon::before {
-  width: 15px;
-  height: 18px;
-  top: 7px;
-  left: 9px;
+  width: 22px;
+  height: 26px;
+  top: 10px;
+  left: 13px;
   border-radius: 8px 8px 10px 10px;
   clip-path: polygon(50% 0, 92% 18%, 82% 76%, 50% 100%, 18% 76%, 8% 18%);
 }
 
 .healthcare-theme .tile-icon::before {
-  width: 4px;
-  height: 18px;
-  top: 8px;
-  left: 15px;
+  width: 6px;
+  height: 26px;
+  top: 11px;
+  left: 21px;
   border-radius: 999px;
 }
 
 .healthcare-theme .tile-icon::after {
-  width: 18px;
-  height: 4px;
-  top: 15px;
-  left: 8px;
+  width: 26px;
+  height: 6px;
+  top: 21px;
+  left: 11px;
   border-radius: 999px;
 }
 
 .petroleum-theme .tile-icon::before {
-  width: 13px;
-  height: 17px;
-  top: 8px;
-  left: 11px;
+  width: 19px;
+  height: 25px;
+  top: 11px;
+  left: 15px;
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
 }
 
 .petroleum-theme .tile-icon::after {
-  width: 6px;
-  height: 6px;
-  top: 16px;
-  left: 14px;
+  width: 8px;
+  height: 8px;
+  top: 23px;
+  left: 20px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.72);
 }
 
 .manufacturing-theme .tile-icon::before {
-  width: 18px;
-  height: 12px;
-  left: 8px;
-  bottom: 8px;
+  width: 26px;
+  height: 18px;
+  left: 11px;
+  bottom: 11px;
   clip-path: polygon(0 44%, 30% 44%, 30% 16%, 46% 16%, 46% 44%, 62% 44%, 62% 24%, 78% 24%, 78% 44%, 100% 44%, 100% 100%, 0 100%);
 }
 
 .manufacturing-theme .tile-icon::after {
-  width: 3px;
-  height: 3px;
-  left: 12px;
-  bottom: 11px;
-  box-shadow: 5px 0 0 var(--tile-accent), 10px 0 0 var(--tile-accent);
+  width: 4px;
+  height: 4px;
+  left: 17px;
+  bottom: 16px;
+  box-shadow: 7px 0 0 var(--tile-accent), 14px 0 0 var(--tile-accent);
   background: rgba(255, 255, 255, 0.72);
 }
 
 .pilot-theme .tile-icon::before {
-  width: 4px;
-  height: 8px;
-  left: 9px;
-  bottom: 9px;
+  width: 6px;
+  height: 12px;
+  left: 13px;
+  bottom: 13px;
   border-radius: 999px 999px 0 0;
-  box-shadow: 6px -5px 0 0 var(--tile-accent), 12px -10px 0 0 var(--tile-accent);
+  box-shadow: 9px -7px 0 0 var(--tile-accent), 18px -14px 0 0 var(--tile-accent);
 }
 
 .pilot-theme .tile-icon::after {
-  width: 17px;
-  height: 2px;
-  left: 8px;
-  bottom: 8px;
+  width: 25px;
+  height: 3px;
+  left: 11px;
+  bottom: 11px;
   border-radius: 999px;
   opacity: 0.5;
 }
@@ -3799,8 +3799,8 @@ span {
   }
 
   .usecase-tile .tile-icon {
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 42px;
   }
 
   .usecase-tile span {
